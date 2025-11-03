@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kysely</title>
+  </head>
+  <body>
+    <div class='container'>
+      <h1 id="otsikko"></h1>
+        <div class='ekarivi'>
+          <div class='kysymys'></div>
+          <div class='vaihtoehdot'>
+            <p>Kyllä</p>
+            <p>Ei</p>
+            <p>Pisteet</p>
+          </div>
+        </div>
+
+        <form onsubmit="" id='form'>
+          <div class='rivi' id='yksirivi'>
+            <div class='kysymys' id="kysymys">
+              <p id='kysymysteksti'>
+              </p>
+              <p id="extrateksti">
+              </p>
+            </div>
+        <div class='vaihtoehdot2'>
+          <label>
+            <input
+            id="oikeinInput"
+              class='oikeinInput'
+              type="radio"
+              name="0"
+              value="2"
+              onchange="handleVastausChange(event)"
+            />
+            <span class='checkmark'></span>
+          </label>
+          <label>
+            <input
+            id="vaarinInput"
+              class='vaarinInput'
+              type="radio"
+              name="0"
+              value="0"
+              onchange="handleVastausChange(event)"
+            />
+            <span class='checkmark'></span>
+          </label>
+          <p id="pisteteksti"></p>
+        </div>
+      </div> <!--Rivi loppu-->
+          <div class='submitdiv'>
+            <button type='button' id="edellinenbutton" onclick="handleEdellinen()" disabled>Edellinen</button>
+            <button type='button' id="seuraavabutton" onclick="handleSeuraava()" >Seuraava</button>
+            <input id="submitbutton" type="submit" value="Valmis" disabled/>
+          </div>
+        </form>
+
+        <div id="tulos" style="display: none">
+          <h3 id="tulosteksti"></h3>
+          <p id='paatelmateksti'></p>
+        </div>
+        </div>
+    <script src="jquery-3.7.1.min.js"></script>
+    <script defer src="index.js"></script>
+  </body>
+</html>

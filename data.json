@@ -1,0 +1,17 @@
+{
+"otsikko":"Liittyykö henkilötietojen käsittelyyn seuraavia piirteitä?",
+"kysymykset":[["Automaattinen päätöksenteko, jolla on oikeusvaikutuksia tai vastaavia merkittäviä vaikutuksia", 2, "Esimerkiksi henkilökohtaisten ominaisuuksien laajamittainen automaattinen profilointi, jota voitaisiin käyttää syrjintään tai muuten rekisteröidyille haitallisesti."],
+  ["Järjestelmällinen valvonta", 2, "Esimerkiksi julkisten ja avointen tilojen kameravalvonta, työntekijöiden tai asiakkaiden järjestelmällinen valvonta."],
+  ["Erityiset henkilötiedot, salassa pidettävät tiedot ja muut arkaluontoiset tai luonteeltaan hyvin henkilökohtaiset tiedot", 2, "Erityiset henkilötietoryhmät (etninen tausta, poliittiset mielipiteet, vakaumus, ammattiliiton jäsenyys, terveystiedot, seksuaalinen suuntautuminen, geneettiset ja biometriset tunnisteet), tiedot rikkomuksista, rikosrekisteritiedot. Myös esimerkiksi taloustiedot, sanalliset arviot henkilöiden ominaisuuksista, psykologiset testit, yksityiset päiväkirjat, kotirauhan piiriin liittyvät tiedot."],
+  ["Uusien teknisten tai organisatoristen ratkaisujen innovatiivinen käyttö tai soveltaminen", 2, "Uusiin ratkaisuihin voi liittyä riskejä, joita ei havaita helposti. Esimerkiksi uuden järjestelmän tai tekoälyn käyttö tavalla, joka ei ole kyseisellä toimialalla yleistä."],
+  ["Arviointi tai pisteytys", 1, "Esimerkiksi käyttäytymis- tai markkinointiprofiilien koostaminen."],
+  ["Tietojen laajamittainen käsittely", 1, "Esimerkiksi huomattavan suuri määrä tietoja yksittäisistä rekisteröidyistä, rekisteröityjä on runsaasti, kattava osuus tietyn alueen väestöstä, tietojen käsittely useissa maissa, käsittelyn pitkäkestoisuus."],
+  ["Tietokokonaisuuksien sovittaminen yhteen tai yhdistäminen", 1, "Eri yhteyksistä kerättyjen tietojen yhdistely, tai kun tietoja yhdistellään rekisteröityjen kohtuullisia odotuksia laajemmin. "],
+  ["Heikossa asemassa olevia rekisteröityjä koskevat tiedot", 1, "Esimerkiksi lapset ja työntekijät, rekisteröityjen riippuvuus rekisterinpitäjästä."],
+  ["Käsittely voi estää rekisteröityjä käyttämästä oikeutta tai palvelua tai sopimusta", 1, "Esimerkiksi pankin arvio luottokelpoisuudesta. Huomioi myös tilanteet, joissa tietoja saadaan muualta kuin rekisteröidyiltä itseltään ja tietojen käyttö on rekisteröidyille ennakoimatonta läpinäkyvyyden puutteen vuoksi, tai kun rekisteröidyillä on vaikeuksia käyttää tietosuoja-asetuksen mukaisia oikeuksiaan."],
+  ["Sijaintitiedot", 2, "Esimerkiksi yksittäisiin ihmisiin liitettävät sijaintitiedot, jotka voivat paljaa arkaluontoisia tai luonteeltaan hyvin henkilökohtaisia tietoja kuten käyttäytymisestä vapaa-ajalla."],
+  ["Poikkeaminen rekisteröidyn informoinnista (GDPR:n artiklan 14.5 perusteella)", 2, "Esimerkiksi kun rekisteröityjä ei informoida henkilötietojen käytöstä yleisen edun mukaisia arkistointitarkoituksia, tieteellisiä ja historiallisia tutkimustarkoituksia tai tilastollisia tarkoituksia varten."],
+  ["Whistleblowing-/ilmiantojärjestelmä", 2, "Tietosuojavaltuutetun päätöksen mukaan whistleblowing-/ilmiantojärjestelmästä on aina tehtävä tietosuojaa koskeva vaikutustenarviointi."]],
+"paatelmat":[["Vaikutustenarviointia ei todennäköisesti tarvitse tehdä.", 1],
+  ["Tietosuojaa koskeva vaikutustenarviointi on syytä tehdä.", 100]]
+}
