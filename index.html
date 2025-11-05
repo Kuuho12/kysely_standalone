@@ -14,7 +14,7 @@
           <div class='vaihtoehdot'>
             <p>Kyllä</p>
             <p>Ei</p>
-            <p>Pisteet</p>
+            <p id="pisteotsikko">Pisteet</p>
           </div>
         </div>
 
@@ -49,12 +49,12 @@
             />
             <span class='checkmark'></span>
           </label>
-          <p id="pisteteksti"></p>
+          <!--<p id="pisteteksti"></p>-->
         </div>
       </div> <!--Rivi loppu-->
           <div class='submitdiv'>
             <button type='button' id="edellinenbutton" onclick="handleEdellinen()" disabled>Edellinen</button>
-            <button type='button' id="seuraavabutton" onclick="handleSeuraava()" >Seuraava</button>
+            <button type='button' id="seuraavabutton" onclick="handleSeuraava()" disabled>Seuraava</button>
             <input id="submitbutton" type="submit" value="Valmis" disabled/>
           </div>
         </form>

@@ -1,10 +1,30 @@
-/*let data = ""
 let kysymykset = []
 let otsikko = ""
 let paatelmat = []
 let vastaukset = []
 let kysymyksetPituus = 0
-fetch('./data.json') //CORS-policyn vuoksi ei onnistunut
+
+async function loadJsonData(url) {
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    const jsonData = await response.json();
+    console.log(jsonData); // 'data' is the parsed JavaScript object
+    data = jsonData
+    kysymykset = jsonData.kysymykset
+    otsikko = jsonData.otsikko, paatelmat = jsonData.paatelmat
+    vastaukset = Array(jsonData.kysymykset.length).fill(null)
+    kysymyksetPituus = jsonData.kysymykset.length
+    initialization()
+  } catch (error) {
+    console.error('Error fetching JSON:', error);
+    latausEpaonnistui(error)
+  }
+}
+loadJsonData("./data.json")
+/*fetch('data.json') //CORS-policyn vuoksi ei onnistunut
     .then(response => response.json())
     .then(jsonData => {
         data = jsonData
@@ -16,7 +36,7 @@ fetch('./data.json') //CORS-policyn vuoksi ei onnistunut
     }
     )
     .catch(error => console.error('Error loading data:', error));*/
-const kysymykset = [ //Kysymys, pisteet vastuaksesta
+/*const kysymykset = [ //Kysymys, pisteet vastuaksesta
   ["Automaattinen päätöksenteko, jolla on oikeusvaikutuksia tai vastaavia merkittäviä vaikutuksia", 2, "Esimerkiksi henkilökohtaisten ominaisuuksien laajamittainen automaattinen profilointi, jota voitaisiin käyttää syrjintään tai muuten rekisteröidyille haitallisesti."],
   ["Järjestelmällinen valvonta", 2, "Esimerkiksi julkisten ja avointen tilojen kameravalvonta, työntekijöiden tai asiakkaiden järjestelmällinen valvonta."],
   ["Erityiset henkilötiedot, salassa pidettävät tiedot ja muut arkaluontoiset tai luonteeltaan hyvin henkilökohtaiset tiedot", 2, "Erityiset henkilötietoryhmät (etninen tausta, poliittiset mielipiteet, vakaumus, ammattiliiton jäsenyys, terveystiedot, seksuaalinen suuntautuminen, geneettiset ja biometriset tunnisteet), tiedot rikkomuksista, rikosrekisteritiedot. Myös esimerkiksi taloustiedot, sanalliset arviot henkilöiden ominaisuuksista, psykologiset testit, yksityiset päiväkirjat, kotirauhan piiriin liittyvät tiedot."],
@@ -36,7 +56,7 @@ const paatelmat = [ //Paatelmat tulee asetella pienimmästä suurimpaan. Luku ke
 ]
 const otsikko = "Liittyykö henkilötietojen käsittelyyn seuraavia piirteitä?"
 let vastaukset = Array(kysymykset.length).fill(null)
-const kysymyksetPituus = kysymykset.length;
+const kysymyksetPituus = kysymykset.length;*/
 let currentKysymys = 0
 
 const otsikkoTeksti = document.getElementById("otsikko")
@@ -61,35 +81,43 @@ function initialization () {
     oikeinInput.setAttribute("name", currentKysymys)
     oikeinInput.setAttribute("value", kysymykset[currentKysymys][1])
     vaarinInput.setAttribute("name", currentKysymys)
-    pisteTeksti.textContent = `${kysymykset[currentKysymys][1]}`
+    //pisteTeksti.textContent = `${kysymykset[currentKysymys][1]}`
 }
-initialization()
+function latausEpaonnistui(error) {
+    otsikkoTeksti.textContent = "Lataus epäonnistui"
+    kysymysTeksti.textContent = `Virhe: ${error}`
+}
 
-const handleVastausChange = (event) => {
+
+function handleVastausChange(event) {
     const index = parseInt(event.target.name, 10);
     const value = parseInt(event.target.value, 10);
     const newVastaukset = [...vastaukset];
     newVastaukset[index] = value;
     vastaukset = newVastaukset;
-    //console.log(newVastaukset);
+    //console.log("SDH", newVastaukset);
+    if (!(currentKysymys === kysymyksetPituus - 1)) {
+        seuraavaButton.removeAttribute("disabled")
+    }
     if(!vastaukset.includes(null)) {
         document.getElementById("submitbutton").removeAttribute("disabled")
     }
 }
 
 
-const handleSeuraava = (event) => {
+function handleSeuraava () {
     if (currentKysymys === 0) {
         edellinenButton.removeAttribute("disabled")
     }
     currentKysymys = currentKysymys + 1
-    if (currentKysymys === kysymyksetPituus - 1) {
+    if (currentKysymys === kysymyksetPituus - 1 || vastaukset[currentKysymys] == null) {
         seuraavaButton.setAttribute("disabled", true)
     }
     kysymyksenVaihto()
 }
 
-const handleEdellinen = (event) => {
+function handleEdellinen() {
+    seuraavaButton.removeAttribute("disabled")
     if (currentKysymys === kysymyksetPituus - 1) {
         seuraavaButton.removeAttribute("disabled")
     }
@@ -112,11 +140,11 @@ function kysymyksenVaihto () {
         case 0:
             vaarinInput.checked = true
         case null:
-            return;
+            break;
         default:
             oikeinInput.checked = true
     }
-    pisteTeksti.textContent = `${kysymykset[currentKysymys][1]}`
+    //pisteTeksti.textContent = `${kysymykset[currentKysymys][1]}`
     kysymysElement.classList.remove("fade")
     void kysymysElement.offsetWidth;
     kysymysElement.classList.add("fade")
@@ -146,6 +174,7 @@ formElement.addEventListener('submit', handleSubmit)
 function showAllQuestions() {
     seuraavaButton.setAttribute("disabled", true)
     edellinenButton.setAttribute("disabled", true)
+    $("#pisteotsikko").css("display", "block")
     $(".rivi").remove();
     console.log(vastaukset)
     const kysymyysRivit = kysymykset.map((kysymys, index) => [
@@ -187,3 +216,6 @@ function showAllQuestions() {
 ])
 $("#form").prepend(kysymyysRivit)
 }
+window.handleVastausChange = handleVastausChange;
+window.handleSeuraava = handleSeuraava;
+window.handleEdellinen = handleEdellinen;

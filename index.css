@@ -58,6 +58,9 @@ p {
     margin-top: auto;
     margin-bottom: auto;
 }
+#pisteotsikko {
+  display: none;
+}
 /*input[type="radio"] {
     margin-left: 20px;
     margin-right: 20px;
@@ -85,8 +88,12 @@ label input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
-  height: 0;
-  width: 0;
+  /* make the invisible input cover the visible checkmark so clicks always toggle it */
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  margin: 0;
 }
 
 /* Create a custom radio button */
@@ -110,10 +117,10 @@ label:hover input ~ .checkmark {
 }*/
 
 label input.oikeinInput:checked ~ .checkmark {
-  background-color: #22ff22;
+  background-color: #ff5555;
 }
 label input.vaarinInput:checked ~ .checkmark {
-  background-color: #ff5555;
+  background-color: #22ff22;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
