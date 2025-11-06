@@ -3,6 +3,7 @@ let otsikko = ""
 let paatelmat = []
 let vastaukset = []
 let kysymyksetPituus = 0
+let paatelmatPituus = 0
 
 async function loadJsonData(url) {
   try {
@@ -14,9 +15,11 @@ async function loadJsonData(url) {
     console.log(jsonData); // 'data' is the parsed JavaScript object
     data = jsonData
     kysymykset = jsonData.kysymykset
-    otsikko = jsonData.otsikko, paatelmat = jsonData.paatelmat
+    otsikko = jsonData.otsikko 
+    paatelmat = jsonData.paatelmat
     vastaukset = Array(jsonData.kysymykset.length).fill(null)
     kysymyksetPituus = jsonData.kysymykset.length
+    paatelmatPituus = jsonData.paatelmat.length
     initialization()
   } catch (error) {
     console.error('Error fetching JSON:', error);
@@ -70,7 +73,6 @@ const pisteTeksti = document.getElementById("pisteteksti")
 const formElement = document.getElementById("form")
 const kysymysElement = document.getElementById("kysymys")
 
-const paatelmatPituus = paatelmat.length;
 /*if (kysymyksetPituus === 0) {
     //return <div><h1>Kysely Component</h1><p>Ei kysymyksiä saatavilla.</p></div>
 }*/
