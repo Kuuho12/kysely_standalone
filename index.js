@@ -61,6 +61,7 @@ const otsikko = "Liittyykö henkilötietojen käsittelyyn seuraavia piirteitä?"
 let vastaukset = Array(kysymykset.length).fill(null)
 const kysymyksetPituus = kysymykset.length;*/
 let currentKysymys = 0
+let onkoSubmit = false
 
 const otsikkoTeksti = document.getElementById("otsikko")
 const seuraavaButton = document.getElementById("seuraavabutton")
@@ -106,6 +107,10 @@ function handleVastausChange(event) {
     }
     if(!vastaukset.includes(null)) {
         document.getElementById("submitbutton").removeAttribute("disabled")
+    }
+    if(onkoSubmit) {
+        $(".submitdiv").remove();
+        $("#tulos").append(`<div class='submitdiv'><input id="submitbutton" type="submit" value="Valmis" /></div>`);
     }
 }
 
@@ -159,6 +164,7 @@ function kysymyksenVaihto () {
 const handleSubmit = (event) => {
     event.preventDefault();
     //console.log('Lähetetyt vastaukset:', vastaukset);
+    onkoSubmit = true
     const tulos = vastaukset.reduce((acc, curr) => acc + curr, 0);
     const tulosMax = kysymykset.reduce((acc, curr) => acc + curr[1], 0);
     const tulosTeksti = `TVA-pisteet: ${tulos} / ${tulosMax}`;
