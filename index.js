@@ -161,7 +161,7 @@ const handleSubmit = (event) => {
     //console.log('Lähetetyt vastaukset:', vastaukset);
     const tulos = vastaukset.reduce((acc, curr) => acc + curr, 0);
     const tulosMax = kysymykset.reduce((acc, curr) => acc + curr[1], 0);
-    const tulosTeksti = `Kyselyn tulos: ${tulos} / ${tulosMax}`;
+    const tulosTeksti = `TVA-pisteet: ${tulos} / ${tulosMax}`;
     document.getElementById('tulosteksti').innerText = tulosTeksti;
     if (paatelmatPituus > 0) {
         for (let i = 0; i < paatelmatPituus; i++) {
