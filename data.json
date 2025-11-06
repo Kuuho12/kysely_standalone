@@ -1,5 +1,5 @@
 {
-"otsikko":"Liittyykö henkilötietojen käsittelyyn seuraavia piirteitä?",
+"otsikko":"Testaa tarve tietosuojan vaikutustenarvioinnille",
 "kysymykset":[["Automaattinen päätöksenteko, jolla on oikeusvaikutuksia tai vastaavia merkittäviä vaikutuksia", 2, "Esimerkiksi henkilökohtaisten ominaisuuksien laajamittainen automaattinen profilointi, jota voitaisiin käyttää syrjintään tai muuten rekisteröidyille haitallisesti."],
   ["Järjestelmällinen valvonta", 2, "Esimerkiksi julkisten ja avointen tilojen kameravalvonta, työntekijöiden tai asiakkaiden järjestelmällinen valvonta."],
   ["Erityiset henkilötiedot, salassa pidettävät tiedot ja muut arkaluontoiset tai luonteeltaan hyvin henkilökohtaiset tiedot", 2, "Erityiset henkilötietoryhmät (etninen tausta, poliittiset mielipiteet, vakaumus, ammattiliiton jäsenyys, terveystiedot, seksuaalinen suuntautuminen, geneettiset ja biometriset tunnisteet), tiedot rikkomuksista, rikosrekisteritiedot. Myös esimerkiksi taloustiedot, sanalliset arviot henkilöiden ominaisuuksista, psykologiset testit, yksityiset päiväkirjat, kotirauhan piiriin liittyvät tiedot."],

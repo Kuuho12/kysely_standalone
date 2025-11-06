@@ -15,6 +15,7 @@ h1 {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     padding-left: 20px;
     padding-right: 20px;
+    font-size: 30px;
 }
 .container {
     margin-top: 30px;
@@ -28,12 +29,13 @@ h1 {
     width: 55%;
     max-width: 900px;
     min-width: 600px;
-    min-height: 300px;
 }
 .ekarivi {
     display: flex;
 }
-
+#yksirivi {
+  min-height: 165px;
+}
 .vaihtoehdot, .vaihtoehdot2 {
     display: flex;
 }
@@ -45,7 +47,7 @@ h1 {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
 }
-p {
+p, h3 {
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
 }
@@ -174,6 +176,7 @@ input[type="submit"], #edellinenbutton, #seuraavabutton {
 }
 #paatelmateksti {
     font-weight: normal;
+    margin-top: 0px;
 }
 #kysymysteksti {
   margin: 0;

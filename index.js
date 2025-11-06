@@ -78,6 +78,7 @@ const kysymysElement = document.getElementById("kysymys")
 }*/
 function initialization () {
     otsikkoTeksti.textContent = otsikko
+    $("title").text(otsikko)
     kysymysTeksti.textContent = `${currentKysymys + 1}. ${kysymykset[currentKysymys][0]}`
     extraTeksti.textContent = `${kysymykset[currentKysymys][2]}`
     oikeinInput.setAttribute("name", currentKysymys)
