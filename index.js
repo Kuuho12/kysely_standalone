@@ -77,8 +77,9 @@ const kysymysElement = document.getElementById("kysymys")
     //return <div><h1>Kysely Component</h1><p>Ei kysymyksiä saatavilla.</p></div>
 }*/
 function initialization () {
-    otsikkoTeksti.textContent = otsikko
-    $("title").text(otsikko)
+    otsikkoTeksti.textContent = otsikko[1]
+    $("#ylempiotsikko").text(otsikko[0])
+    $("title").text(otsikko[0])
     kysymysTeksti.textContent = `${currentKysymys + 1}. ${kysymykset[currentKysymys][0]}`
     extraTeksti.textContent = `${kysymykset[currentKysymys][2]}`
     oikeinInput.setAttribute("name", currentKysymys)
