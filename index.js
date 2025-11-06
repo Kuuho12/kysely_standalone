@@ -6,25 +6,25 @@ let kysymyksetPituus = 0
 let paatelmatPituus = 0
 
 async function loadJsonData(url) {
-  try {
-    const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+    try {
+        const response = await fetch(url);
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const jsonData = await response.json();
+        console.log(jsonData); // 'data' is the parsed JavaScript object
+        data = jsonData
+        kysymykset = jsonData.kysymykset
+        otsikko = jsonData.otsikko
+        paatelmat = jsonData.paatelmat
+        vastaukset = Array(jsonData.kysymykset.length).fill(null)
+        kysymyksetPituus = jsonData.kysymykset.length
+        paatelmatPituus = jsonData.paatelmat.length
+        initialization()
+    } catch (error) {
+        console.error('Error fetching JSON:', error);
+        latausEpaonnistui(error)
     }
-    const jsonData = await response.json();
-    console.log(jsonData); // 'data' is the parsed JavaScript object
-    data = jsonData
-    kysymykset = jsonData.kysymykset
-    otsikko = jsonData.otsikko 
-    paatelmat = jsonData.paatelmat
-    vastaukset = Array(jsonData.kysymykset.length).fill(null)
-    kysymyksetPituus = jsonData.kysymykset.length
-    paatelmatPituus = jsonData.paatelmat.length
-    initialization()
-  } catch (error) {
-    console.error('Error fetching JSON:', error);
-    latausEpaonnistui(error)
-  }
 }
 loadJsonData("./data.json")
 /*fetch('data.json') //CORS-policyn vuoksi ei onnistunut
@@ -77,7 +77,7 @@ const kysymysElement = document.getElementById("kysymys")
 /*if (kysymyksetPituus === 0) {
     //return <div><h1>Kysely Component</h1><p>Ei kysymyksiä saatavilla.</p></div>
 }*/
-function initialization () {
+function initialization() {
     otsikkoTeksti.textContent = otsikko[1]
     $("#ylempiotsikko").text(otsikko[0])
     $("title").text(otsikko[0])
@@ -105,17 +105,13 @@ function handleVastausChange(event) {
     if (!(currentKysymys === kysymyksetPituus - 1) && vanhaVastaus == null) {
         handleSeuraava()
     }
-    if(!vastaukset.includes(null)) {
+    if (!vastaukset.includes(null)) {
         document.getElementById("submitbutton").removeAttribute("disabled")
-    }
-    if(onkoSubmit) {
-        $(".submitdiv").remove();
-        $("#tulos").append(`<div class='submitdiv'><input id="submitbutton" type="submit" value="Valmis" /></div>`);
     }
 }
 
 
-function handleSeuraava () {
+function handleSeuraava() {
     if (currentKysymys === 0) {
         edellinenButton.removeAttribute("disabled")
     }
@@ -137,7 +133,7 @@ function handleEdellinen() {
     }
     kysymyksenVaihto()
 }
-function kysymyksenVaihto () {
+function kysymyksenVaihto() {
     $(".kysymys").attr("key", currentKysymys);
     kysymysTeksti.textContent = `${currentKysymys + 1}. ${kysymykset[currentKysymys][0]}`
     extraTeksti.textContent = `${kysymykset[currentKysymys][2]}`
@@ -146,7 +142,7 @@ function kysymyksenVaihto () {
     vaarinInput.setAttribute("name", currentKysymys)
     oikeinInput.checked = false
     vaarinInput.checked = false
-    switch(vastaukset[currentKysymys]) {
+    switch (vastaukset[currentKysymys]) {
         case 0:
             vaarinInput.checked = true
         case null:
@@ -164,7 +160,6 @@ function kysymyksenVaihto () {
 const handleSubmit = (event) => {
     event.preventDefault();
     //console.log('Lähetetyt vastaukset:', vastaukset);
-    onkoSubmit = true
     const tulos = vastaukset.reduce((acc, curr) => acc + curr, 0);
     const tulosMax = kysymykset.reduce((acc, curr) => acc + curr[1], 0);
     const tulosTeksti = `TVA-pisteet: ${tulos} / ${tulosMax}`;
@@ -180,7 +175,16 @@ const handleSubmit = (event) => {
         }
     }
     document.getElementById('tulos').style.display = "flex";
-    showAllQuestions()
+    if (!onkoSubmit) {
+        showAllQuestions()
+    } else {
+        window.scrollTo({
+            top: 0,
+            left: 0,
+            behavior: 'smooth' // Makes the scroll animation smooth
+        });
+    }
+    onkoSubmit = true
 }
 formElement.addEventListener('submit', handleSubmit)
 
@@ -194,7 +198,7 @@ function showAllQuestions() {
     console.log(vastaukset)
     const kysymyysRivit = kysymykset.map((kysymys, index) => [
         (vastaukset[index] > 0) ?
-    `<div class="rivi" key=${index}>
+            `<div class="rivi" key=${index}>
         <div class='kysymys'>
             <p id='kysymysteksti'>${index + 1}. ${kysymys[0]}</p>
             <p id="extrateksti">${kysymys[2]}</p>
@@ -211,7 +215,7 @@ function showAllQuestions() {
             <p id='pisteteksti'>${kysymys[1]}</p>
         </div>
     </div>` :
-    `<div class="rivi" key=${index}>
+            `<div class="rivi" key=${index}>
         <div class='kysymys'>
             <p id='kysymysteksti'>${index + 1}. ${kysymys[0]}</p>
             <p id="extrateksti">${kysymys[2]}</p>
@@ -228,8 +232,8 @@ function showAllQuestions() {
             <p id='pisteteksti'>${kysymys[1]}</p>
         </div>
     </div>`
-])
-$("#form").prepend(kysymyysRivit)
+    ])
+    $("#form").prepend(kysymyysRivit)
 }
 window.handleVastausChange = handleVastausChange;
 window.handleSeuraava = handleSeuraava;
