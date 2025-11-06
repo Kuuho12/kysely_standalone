@@ -12,8 +12,8 @@
   ["Sijaintitiedot", 2, "Esimerkiksi yksittäisiin ihmisiin liitettävät sijaintitiedot, jotka voivat paljaa arkaluontoisia tai luonteeltaan hyvin henkilökohtaisia tietoja kuten käyttäytymisestä vapaa-ajalla."],
   ["Poikkeaminen rekisteröidyn informoinnista (GDPR:n artiklan 14.5 perusteella)", 2, "Esimerkiksi kun rekisteröityjä ei informoida henkilötietojen käytöstä yleisen edun mukaisia arkistointitarkoituksia, tieteellisiä ja historiallisia tutkimustarkoituksia tai tilastollisia tarkoituksia varten."],
   ["Whistleblowing-/ilmiantojärjestelmä", 2, "Tietosuojavaltuutetun päätöksen mukaan whistleblowing-/ilmiantojärjestelmästä on aina tehtävä tietosuojaa koskeva vaikutustenarviointi."]],
-"paatelmat":[["Vaikutustenarviointia ei todennäköisesti tarvitse tehdä.", 0],
-  ["Käsittelyssä on riskitekijä, jonka vuoksi vaikutustenarviointia on syytä harkita.", 1],
-  ["Tietosuojaa koskeva vaikutustenarviointi on syytä tehdä.", 2],
-  ["Useiden riskitekijöiden vuoksi tietosuojaa koskeva vaikutustenarviointi on syytä tehdä.", 100]]
+"paatelmat":[["Vaikutustenarviointia ei todennäköisesti tarvitse tehdä.", 0, "green"],
+  ["Käsittelyssä on riskitekijä, jonka vuoksi vaikutustenarviointia on syytä harkita.", 1, "green"],
+  ["Tietosuojaa koskeva vaikutustenarviointi on syytä tehdä.", 2, "darkred"],
+  ["Useiden riskitekijöiden vuoksi tietosuojaa koskeva vaikutustenarviointi on syytä tehdä.", 100, "darkred"]]
 }

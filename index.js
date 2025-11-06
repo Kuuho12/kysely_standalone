@@ -166,7 +166,9 @@ const handleSubmit = (event) => {
     if (paatelmatPituus > 0) {
         for (let i = 0; i < paatelmatPituus; i++) {
             if (tulos <= paatelmat[i][1]) {
-                document.getElementById("paatelmateksti").innerText = paatelmat[i][0];
+                paatelmaTeksti = document.getElementById("paatelmateksti")
+                paatelmaTeksti.innerText = paatelmat[i][0];
+                paatelmaTeksti.style.color = paatelmat[i][2];
                 i = paatelmatPituus;
             }
         }

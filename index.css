@@ -177,7 +177,6 @@ input[type="submit"], #edellinenbutton, #seuraavabutton {
     flex-direction: column;
 }
 #paatelmateksti {
-    font-weight: normal;
     margin-top: 0px;
 }
 #kysymysteksti {
