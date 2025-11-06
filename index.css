@@ -61,13 +61,16 @@ h1 {
 #pisteteksti {
     margin-left: 20px;
     margin-right: 20px;
-    width: 35px !important;
+    width: 25px !important;
     text-align: center;
     margin-top: auto;
     margin-bottom: auto;
 }
 #pisteotsikko {
   display: none;
+  margin-left: 10px;
+  margin-right: 5px;
+  width: 50px;
 }
 /*input[type="radio"] {
     margin-left: 20px;

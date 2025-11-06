@@ -201,8 +201,8 @@ function showAllQuestions() {
             <label>
                 <input class='vaarinInput' type="radio" name=${index} value=${0} onchange="handleVastausChange(event)" />
                 <span class='checkmark'></span>
-                <p id='pisteteksti'>${kysymys[1]}</p>
             </label>
+            <p id='pisteteksti'>${kysymys[1]}</p>
         </div>
     </div>` :
     `<div class="rivi" key=${index}>
@@ -218,8 +218,8 @@ function showAllQuestions() {
             <label>
                 <input class='vaarinInput' type="radio" name=${index} value=${0} checked onchange="handleVastausChange(event)" />
                 <span class='checkmark'></span>
-                <p id='pisteteksti'>${kysymys[1]}</p>
             </label>
+            <p id='pisteteksti'>${kysymys[1]}</p>
         </div>
     </div>`
 ])
