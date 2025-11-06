@@ -95,11 +95,12 @@ function handleVastausChange(event) {
     const index = parseInt(event.target.name, 10);
     const value = parseInt(event.target.value, 10);
     const newVastaukset = [...vastaukset];
+    vanhaVastaus = vastaukset[currentKysymys]
     newVastaukset[index] = value;
     vastaukset = newVastaukset;
     //console.log("SDH", newVastaukset);
-    if (!(currentKysymys === kysymyksetPituus - 1)) {
-        seuraavaButton.removeAttribute("disabled")
+    if (!(currentKysymys === kysymyksetPituus - 1) && vanhaVastaus == null) {
+        handleSeuraava()
     }
     if(!vastaukset.includes(null)) {
         document.getElementById("submitbutton").removeAttribute("disabled")

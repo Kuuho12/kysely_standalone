@@ -108,8 +108,11 @@ label input {
   border: 1px solid #bbb;
 }
 
-label:hover input ~ .checkmark {
-  background-color: #ccc;
+label:hover input.oikeinInput ~ .checkmark {
+  background-color: #dd4444;
+}
+label:hover input.vaarinInput ~ .checkmark {
+  background-color: #11dd11;
 }
 /*label input:checked ~ .checkmark {
     background-color: #999;
