@@ -1,3 +1,10 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
 .rivi {
     display: flex;
     flex-direction: row;
@@ -7,28 +14,28 @@
 .kysymys {
     width: 75%;
     max-width: 800px;
-    padding-left: 20px;
+    padding-left: 15px;
     font-family:Arial, Helvetica, sans-serif;
     /*animation: fade 320ms ease both;*/
 }
 h1, h4 {
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 15px;
+    padding-right: 15px;
 }
 h1 {
-  font-size: 30px;
+  font-size: 20px;
 }
 .container {
     margin-top: 30px;
     margin-left: auto;
     margin-right: auto;
     align-items: center;
-    padding: 20px;
+    padding: 10px;
     /*box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);*/
-    border: 5px solid #ccc;
+    border: 3px solid #ccc;
     border-radius: 10px;
-    width: 100%;
+    width: 90%;
     max-width: 900px;
     min-width: 340px;
 }
@@ -43,15 +50,12 @@ h1 {
 }
 .vaihtoehdot p {
     margin-left: 15px;
-    margin-right: 15px;
-    width: 45px;
+    margin-right: 10px;
+    width: 40px;
     text-align: center;
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: bold;
-}
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bold;
+    margin-bottom: 0;
 }
 
 #pisteteksti {
@@ -75,10 +79,10 @@ body {
 label {
   display: block;
   position: relative;
-  padding-left: 35px;
+  padding-left: 25px;
   margin-bottom: 30px;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 20px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
@@ -158,7 +162,7 @@ label.checkmark:after {
 input[type="submit"], #edellinenbutton, #seuraavabutton {
     padding: 6px 12px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    font-size: 16px;
+    font-size: 14px;
     border-radius: 0px;
 }
 .submitdiv {
@@ -182,11 +186,11 @@ input[type="submit"], #edellinenbutton, #seuraavabutton {
 }
 #kysymysteksti {
   margin: 0;
-  font-size: 18px;
+  font-size: 14px;
   /*animation: fadeInUp 320ms ease both;*/
 }
 #extrateksti {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: normal;
 }
 @keyframes fade {
@@ -223,4 +227,11 @@ input[type="submit"], #edellinenbutton, #seuraavabutton {
   opacity: 0;
   transform: translateY(-8px);
   transition: opacity 300ms, transform 300ms;
+}
+
+small {
+  display: block;
+  margin-top: 15px;
+  font-weight: normal;
+  font-size: 12px;
 }
