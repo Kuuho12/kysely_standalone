@@ -179,8 +179,10 @@ const handleSubmit = (event) => {
 formElement.addEventListener('submit', handleSubmit)
 
 function showAllQuestions() {
-    seuraavaButton.setAttribute("disabled", true)
-    edellinenButton.setAttribute("disabled", true)
+    /*seuraavaButton.setAttribute("disabled", true)
+    edellinenButton.setAttribute("disabled", true)*/
+    seuraavaButton.style.display = "none"
+    edellinenButton.style.display = "none"
     $("#pisteotsikko").css("display", "block")
     $(".rivi").remove();
     console.log(vastaukset)
